@@ -31,7 +31,7 @@ jobs:
 
       # 5. Generar reporte de cobertura
       - name: Generate coverage report
-        run: npm run test:coverage  # Asegúrate de tener este script configurado
+        run: npm run test:coverage -- --browsers=ChromeHeadless # Asegúrate de tener este script configurado
 
       # 6. Análisis con SonarCloud
       - name: SonarCloud Analysis
