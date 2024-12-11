@@ -44,8 +44,8 @@ jobs:
       - name: SonarCloud Analysis
         run: >
           npx sonar-scanner
-          -Dsonar.projectKey=NombreDeProyectoAngular
-          -Dsonar.organization=tu_organizacion
+          -Dsonar.projectKey=alvaroavilesr_TFM_Prueba_Angular
+          -Dsonar.organization=alvaroavilesr
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.sources=src
           -Dsonar.tests=src
