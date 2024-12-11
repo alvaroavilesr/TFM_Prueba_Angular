@@ -27,7 +27,7 @@ jobs:
 
       # 4. Ejecutar pruebas
       - name: Run tests
-        run: ng test --watch=false --browsers=ChromeHeadless
+        run: npm test -- --watch=false --browsers=ChromeHeadless
 
       # 5. Generar reporte de cobertura
       - name: Generate coverage report
