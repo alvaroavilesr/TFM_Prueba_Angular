@@ -48,8 +48,8 @@ jobs:
           -Dsonar.organization=alvaroavilesr
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.sources=src
-          -Dsonar.tests=src
+          -Dsonar.tests=src/**/*.spec.ts
           -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-          -Dsonar.exclusions=**/*.spec.ts,**/*.test.ts,**/*.html,**/*.css,**/*.routes.tss
+          -Dsonar.exclusions=**/*.html,**/*.css,**/*.routes.ts
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
