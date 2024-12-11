@@ -1,0 +1,47 @@
+name: CI for Angular
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'develop'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout del código
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Configurar Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Ejecutar pruebas
+      - name: Run tests
+        run: npm test -- --watch=false
+
+      # 5. Generar reporte de cobertura
+      - name: Generate coverage report
+        run: npm run test:coverage  # Asegúrate de tener este script configurado
+
+      # 6. Análisis con SonarCloud
+      - name: SonarCloud Analysis
+        run: >
+          npx sonar-scanner
+          -Dsonar.projectKey=NombreDeProyectoAngular
+          -Dsonar.organization=tu_organizacion
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.sources=src
+          -Dsonar.tests=src
+          -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
