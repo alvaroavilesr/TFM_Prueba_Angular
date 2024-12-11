@@ -50,5 +50,6 @@ jobs:
           -Dsonar.sources=src
           -Dsonar.tests=src
           -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+          -Dsonar.exclusions=**/*.css,**/*.html
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
